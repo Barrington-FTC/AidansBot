@@ -13,11 +13,25 @@ public class Intake {
 
         intakeMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
     }
+    /*
+    //Intake based on triggers
     public void intake (double intakeSpeed) {
         if (intakeSpeed >= 0.3) {
             intakeMotor.setPower(1.0);
         }
         else if (intakeSpeed <= -0.3) {
+            intakeMotor.setPower(-1.0);
+        }
+        else {
+            intakeMotor.setPower(0.0);
+        }
+    }
+
+     */
+    public void intake (boolean intake, boolean reverse) {
+        if (intake) {
+            intakeMotor.setPower(1.0);
+        } else if (reverse) {
             intakeMotor.setPower(-1.0);
         }
         else {
